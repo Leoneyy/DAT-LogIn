@@ -1,0 +1,469 @@
+:root{--p:#4f46e5;--p2:#7c3aed;--bg:#f5f7fb;--card:#fff;--text:#172033;--muted:#667085;--line:#e5e7ef;--good:#16a34a;--bad:#dc2626;--warn:#d97706}*{box-sizing:border-box}html{width:410px;min-width:410px;max-width:410px;background:var(--bg)}body{margin:0;overflow-x:hidden;width:410px;min-width:410px;max-width:410px;min-height:540px;background:var(--bg);font-family:Inter,system-ui,-apple-system,"Segoe UI",sans-serif;color:var(--text);font-size:12px}.hidden{display:none!important}.screen{min-height:540px;padding:15px;display:grid;place-items:center}.panel{width:100%;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:0 18px 50px rgba(15,23,42,.1);padding:20px}.login-panel{max-width:370px}.center{text-align:center}.logo,.mini-logo{display:grid;place-items:center;color:#fff;background:linear-gradient(135deg,var(--p),var(--p2));box-shadow:0 10px 22px rgba(79,70,229,.22)}.logo{width:48px;height:48px;border-radius:15px;margin:0 auto 12px;font-size:24px;font-weight:900}.mini-logo{width:35px;height:35px;border-radius:10px}.brand{display:flex;align-items:center;gap:8px}.brand strong{display:block;font-size:13px}.brand small{display:block;font-size:9px;color:var(--muted);margin-top:2px}.topbar{display:flex;justify-content:space-between;align-items:center;padding:12px 13px}.icon-btn{width:33px;height:33px;border:1px solid var(--line);background:#fff;border-radius:10px;color:#667085}.card{margin:8px 9px;background:#fff;border:1px solid var(--line);border-radius:15px;box-shadow:0 7px 20px rgba(15,23,42,.05)}.status-card{padding:12px 13px}.status-line{display:flex;align-items:center;justify-content:space-between;gap:10px}.card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;padding:12px 13px 6px}.card-body{padding:0 13px 13px}.eyebrow{font-size:8px;font-weight:900;letter-spacing:.09em;text-transform:uppercase;color:#7b8190}.eyebrow.red{color:#b42318}.card h2{font-size:14px;margin:3px 0 0;font-weight:900}.panel h1{font-size:18px;margin:0 0 4px;font-weight:900}.panel p{margin:0;color:var(--muted);font-size:10px;line-height:1.5}.badge{display:inline-flex;align-items:center;gap:5px;padding:5px 8px;border-radius:999px;font-size:8px;font-weight:900}.badge.good{background:#dcfce7;color:#166534}.badge.warn{background:#ffedd5;color:#9a3412}.badge.bad{background:#fee2e2;color:#991b1b}.dot{width:6px;height:6px;border-radius:50%;background:currentColor}.kv{display:flex;justify-content:space-between;gap:8px;padding:7px 0;border-bottom:1px solid #f0f2f5;font-size:10px}.kv:last-child{border-bottom:0}.kv span{color:var(--muted)}.kv strong{text-align:right;max-width:240px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.alert{padding:9px 10px;border-radius:10px;font-size:9px;line-height:1.45}.alert.info{background:#eff6ff;border:1px solid #bfdbfe;color:#1e40af}.alert.bad{background:#fef2f2;border:1px solid #fecaca;color:#991b1b}label{font-size:9px;font-weight:800;color:#475467;display:block;margin:4px 0}.input,input{width:100%;border:1px solid var(--line);background:#fff;padding:9px 10px;border-radius:10px;outline:0;font:inherit;color:var(--text);margin-bottom:8px}input:focus{border-color:#a5b4fc;box-shadow:0 0 0 3px rgba(99,102,241,.12)}.btn{border:0;border-radius:10px;padding:9px 11px;font:inherit;font-weight:850;cursor:pointer}.primary{background:linear-gradient(135deg,var(--p),var(--p2));color:#fff}.light{background:#fff;border:1px solid var(--line);color:#344054}.wide{width:100%}.btn:disabled{opacity:.55;cursor:wait}.small{font-size:9px;color:#98a2b3;margin-top:7px;line-height:1.45}.footer{text-align:center;color:#98a2b3;font-size:8px;padding:8px 10px 13px}.spinner{width:16px;height:16px;border:2px solid currentColor;border-right-color:transparent;border-radius:50%;display:inline-block;animation:spin .7s linear infinite}.purple{color:var(--p);margin-top:13px}.suspend-icon{width:58px;height:58px;margin:0 auto 12px;border-radius:18px;background:#fee2e2;color:#b42318;display:grid;place-items:center;font-size:27px;font-weight:900}.suspend-title{color:#991b1b!important;margin-top:5px!important}.sites-list{margin-top:8px;display:flex;flex-direction:column;gap:6px}.site-pill{padding:8px 9px;border:1px solid var(--line);border-radius:10px;background:#fafbfc;font-size:10px;display:flex;justify-content:space-between;gap:8px}.site-pill span{color:var(--muted);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.toast{position:fixed;left:14px;right:14px;bottom:12px;padding:10px;border-radius:10px;color:#fff;background:#172033;box-shadow:0 16px 34px rgba(15,23,42,.24);font-size:10px;z-index:100}
+
+/* Shared Login Access visual polish */
+.login-card .brand-mark{
+  position:relative;
+  box-shadow:
+    0 14px 35px rgba(91,69,232,.24),
+    0 0 0 6px rgba(91,69,232,.035),
+    0 0 28px rgba(91,69,232,.13);
+}
+.login-card .brand-mark::after{
+  content:"";
+  position:absolute;
+  right:-3px;
+  bottom:-3px;
+  width:11px;
+  height:11px;
+  border-radius:50%;
+  background:#12b76a;
+  border:2px solid #fff;
+  box-shadow:
+    0 0 0 0 rgba(18,183,106,.25),
+    0 0 9px rgba(18,183,106,.28);
+  animation:loginOnlinePulse10627 2s ease-in-out infinite;
+}
+@keyframes loginOnlinePulse10627{
+  0%,100%{
+    box-shadow:
+      0 0 0 0 rgba(18,183,106,.22),
+      0 0 8px rgba(18,183,106,.22);
+  }
+  50%{
+    box-shadow:
+      0 0 0 5px rgba(18,183,106,0),
+      0 0 14px rgba(18,183,106,.38);
+  }
+}
+
+
+/* Secure Login — match LogIn Admin Space design exactly.
+   UI-only: no client behavior or JS hooks changed. */
+#login.screen{
+  min-height:560px;
+  display:grid;
+  place-items:center;
+  padding:20px;
+}
+#login .state-card{
+  width:min(100%,390px);
+  background:#fff;
+  border:1px solid #e5e7eb;
+  border-radius:24px;
+  padding:30px;
+  text-align:center;
+  box-shadow:0 12px 30px rgba(16,24,40,.08);
+}
+#login .brand-mark{
+  width:68px;
+  height:68px;
+  margin:0 auto;
+  border-radius:20px;
+  display:grid;
+  place-items:center;
+  color:#fff;
+  font-size:32px;
+  font-weight:700;
+  background:linear-gradient(135deg,#5b45e8,#7440ee);
+  box-shadow:0 14px 35px rgba(91,69,232,.24);
+}
+#login .eyebrow{
+  display:inline-block;
+  margin-top:20px;
+  font-size:10px;
+  font-weight:800;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:#667085;
+}
+#login .state-card h1{
+  margin:12px 0 7px;
+  font-size:25px;
+  line-height:1.15;
+  letter-spacing:-.02em;
+  font-weight:800;
+}
+#login .state-card p{
+  margin:0;
+  color:#667085;
+  line-height:1.6;
+  font-size:13px;
+}
+#login .form-stack{
+  display:grid;
+  gap:14px;
+  margin-top:26px;
+  text-align:left;
+}
+#login .field{min-width:0}
+#login .field label{
+  display:block;
+  margin:0 0 7px;
+  font-size:12px;
+  font-weight:800;
+  color:#344054;
+}
+#login .field input{
+  width:100%;
+  min-height:48px;
+  margin:0;
+  border:1px solid #d9dee8;
+  background:#fff;
+  border-radius:14px;
+  padding:12px 14px;
+  outline:0;
+  font:inherit;
+  font-size:13px;
+  color:#172033;
+  box-shadow:none;
+}
+#login .field input::placeholder{color:#98a2b3}
+#login .field input:focus{
+  border-color:#a59bf4;
+  box-shadow:0 0 0 3px rgba(91,69,232,.10);
+}
+#login .btn-primary{
+  min-height:48px;
+  border-radius:14px;
+  border:1px solid transparent;
+  padding:12px 16px;
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:100%;
+  background:linear-gradient(135deg,#5b45e8,#7440ee);
+  color:#fff;
+  font-size:13px;
+  font-weight:850;
+  cursor:pointer;
+  box-shadow:0 10px 24px rgba(91,69,232,.18);
+}
+#login .btn-primary:disabled{opacity:.65;cursor:wait}
+#login .alert-danger{
+  padding:10px 12px;
+  border-radius:12px;
+  font-size:11px;
+  line-height:1.45;
+  background:#fef3f2;
+  border:1px solid #fecdca;
+  color:#b42318;
+}
+#login .spinner{
+  width:14px;
+  height:14px;
+  margin:0 8px 0 0;
+  border:2px solid rgba(255,255,255,.45);
+  border-top-color:#fff;
+  border-radius:50%;
+  display:inline-block;
+  animation:loginSpin 0.7s linear infinite;
+  vertical-align:-2px;
+}
+@keyframes loginSpin{to{transform:rotate(360deg)}}
+
+/* Connected Client Space — premium UI pass (UI only) */
+#app .topbar{
+  padding:14px 13px 12px;
+}
+#app .brand{
+  gap:10px;
+}
+#app .mini-logo{
+  width:40px;
+  height:40px;
+  border-radius:12px;
+  font-size:20px;
+  box-shadow:0 10px 24px rgba(79,70,229,.18);
+}
+#app .brand strong{
+  font-size:16px;
+  letter-spacing:-.02em;
+}
+#app .brand small{
+  font-size:10px;
+  margin-top:2px;
+}
+#app .card{
+  margin:9px 9px;
+  border-radius:18px;
+  box-shadow:0 8px 24px rgba(15,23,42,.045);
+}
+#app .status-card{
+  padding:16px 15px;
+}
+#app .status-line{
+  align-items:center;
+}
+#app .status-card .eyebrow{
+  font-size:9px;
+  letter-spacing:.11em;
+}
+#app .status-card h2{
+  font-size:19px;
+  margin-top:6px;
+  letter-spacing:-.02em;
+}
+#app .status-card .badge{
+  padding:7px 10px;
+  font-size:9px;
+}
+#app .status-card .dot,
+#app .proxyCard .dot{
+  width:7px;
+  height:7px;
+}
+#app .action-card .card-body{
+  padding:13px;
+}
+#app #freshSync{
+  min-height:48px;
+  border-radius:14px;
+  font-size:15px;
+  font-weight:900;
+  box-shadow:0 10px 24px rgba(79,70,229,.16);
+}
+#app #syncInfo{
+  font-size:10px;
+  margin-top:9px;
+}
+#app .proxyCard .card-head{
+  padding:15px 15px 9px;
+}
+#app .proxyCard .card-body{
+  padding:0 15px 15px;
+}
+#app .proxyCard .card-head h2{
+  font-size:18px;
+  margin-top:5px;
+  letter-spacing:-.02em;
+}
+#app .proxyCard .badge{
+  padding:7px 10px;
+  font-size:9px;
+}
+#app .proxyCard .kv{
+  padding:9px 0;
+  font-size:11px;
+}
+#app .proxyCard .kv strong{
+  max-width:245px;
+  font-size:11px;
+}
+#app .proxy-endpoint-row{
+  display:none;
+}
+#app .proxyCard .alert{
+  margin-top:9px;
+  border-radius:12px;
+  padding:10px 11px;
+  font-size:10px;
+}
+#app .sites-list{
+  margin-top:10px;
+  gap:7px;
+}
+#app .site-pill{
+  padding:10px 11px;
+  border-radius:13px;
+  background:#fbfcfe;
+  font-size:11px;
+}
+#app .signout-card .card-body{
+  padding:13px;
+}
+#app #logout{
+  min-height:46px;
+  border-radius:14px;
+  background:#fff;
+  border:1px solid #f5b8b5;
+  color:#b42318;
+  font-size:13px;
+  font-weight:850;
+  box-shadow:none;
+}
+#app #logout:hover{background:#fff7f6}
+#app .ui-hook{display:none!important}
+
+
+/* Login action state polish */
+#app #freshSync .spinner{
+  width:16px;
+  height:16px;
+  flex:0 0 16px;
+  margin:0 1px 0 0;
+  border:2px solid rgba(255,255,255,.42);
+  border-top-color:#fff;
+  border-right-color:rgba(255,255,255,.85);
+  border-radius:50%;
+  display:inline-block;
+  animation:loginButtonSpin .7s linear infinite;
+  will-change:transform;
+}
+@keyframes loginButtonSpin{to{transform:rotate(360deg)}}
+#app #freshSync.login-success{
+  background:linear-gradient(135deg,#16a34a,#22c55e);
+  box-shadow:0 10px 24px rgba(22,163,74,.18);
+  cursor:default;
+}
+#app #freshSync.login-success:hover{filter:none;transform:none;box-shadow:0 10px 24px rgba(22,163,74,.18)}
+#app #freshSync.login-success:disabled{opacity:1;cursor:default}
+.login-success-check{
+  display:inline-grid;
+  place-items:center;
+  width:18px;
+  height:18px;
+  margin-right:1px;
+  border-radius:50%;
+  background:rgba(255,255,255,.20);
+  font-size:11px;
+  line-height:1;
+}
+
+
+/* Steve Jobs spacing refinement — visual only */
+#app .card{
+  margin:10px 10px;
+  border-radius:18px;
+}
+#app .status-card{
+  padding:18px 17px;
+}
+#app .status-card h2{
+  font-size:18px;
+}
+#app .action-card .card-body{
+  padding:15px 17px;
+}
+#app .proxyCard .card-head{
+  padding:16px 17px 9px;
+}
+#app .proxyCard .card-body{
+  padding:0 17px 17px;
+}
+#app .proxyCard .card-head h2{
+  font-size:17px;
+}
+#app .proxyCard .kv{
+  padding:10px 0;
+  font-size:10.5px;
+}
+#app .proxyCard .kv strong{
+  font-size:10.5px;
+}
+#app .proxyCard .alert{
+  margin-top:10px;
+  padding:10px 12px;
+}
+#app > .card:has(#sitesList){
+  padding:17px;
+}
+#app .sites-list{
+  margin-top:12px;
+  gap:8px;
+}
+#app .site-pill{
+  padding:11px 12px;
+  border-radius:13px;
+  font-size:10.5px;
+}
+#app .signout-card .card-body{
+  padding:15px 17px;
+}
+#app #logout{
+  min-height:45px;
+  font-size:12.5px;
+}
+
+/* No customer-facing sync status text; JS hook is intentionally preserved. */
+#app #syncInfo{display:none!important}
+
+/* Login success state: typographic check, not an emoji. */
+.login-success-check{
+  position:relative;
+  width:16px;
+  height:16px;
+  flex:0 0 16px;
+  margin-left:2px;
+  border-radius:50%;
+  background:rgba(255,255,255,.18);
+}
+.login-success-check::before,
+.login-success-check::after{
+  content:"";
+  position:absolute;
+  background:#fff;
+  border-radius:2px;
+  transform-origin:left center;
+}
+.login-success-check::before{
+  width:5px;
+  height:2px;
+  left:4px;
+  top:8px;
+  transform:rotate(45deg);
+}
+.login-success-check::after{
+  width:8px;
+  height:2px;
+  left:7px;
+  top:9px;
+  transform:rotate(-50deg);
+}
+.login-success-label{display:inline-block}
+
+/* Login page icon size refinement — UI only. */
+#login .brand-mark, .login-card .brand-mark{
+  width:58px;
+  height:58px;
+  border-radius:18px;
+  font-size:28px;
+}
+#login .brand-mark::after{
+  right:-3px;
+  bottom:-3px;
+}
+
+/* Steve Jobs compact spacing pass — same 410px popup, smaller controls/text, more breathing room. */
+body{font-size:11.5px}
+.screen{padding:22px}
+#login.screen{padding:22px}
+#login .state-card{padding:32px}
+#login .brand-mark, .login-card .brand-mark{width:54px;height:54px;border-radius:17px;font-size:26px}
+#login .eyebrow{margin-top:18px;font-size:9px}
+#login .state-card h1{font-size:23px;margin:11px 0 6px}
+#login .state-card p{font-size:12px}
+#login .form-stack{gap:13px;margin-top:24px}
+#login .field label{font-size:11px;margin-bottom:6px}
+#login .field input{min-height:44px;border-radius:13px;padding:11px 13px;font-size:12px}
+#login .btn-primary{min-height:44px;border-radius:13px;padding:11px 14px;font-size:12px}
+#login .alert-danger{padding:9px 11px;font-size:10px}
+
+#app .topbar{padding:16px 17px 14px}
+#app .brand{gap:9px}
+#app .mini-logo{width:38px;height:38px;border-radius:11px;font-size:19px}
+#app .brand strong{font-size:15px}
+#app .brand small{font-size:9px}
+#app .card{margin:10px 11px;border-radius:18px}
+#app .status-card{padding:19px 18px}
+#app .status-card .eyebrow{font-size:8.5px}
+#app .status-card h2{font-size:17px;margin-top:5px}
+#app .status-card .badge{padding:6px 9px;font-size:8.5px}
+#app .status-card .dot,#app .proxyCard .dot{width:6px;height:6px}
+#app .action-card .card-body{padding:16px 18px}
+#app #freshSync{min-height:44px;border-radius:13px;font-size:14px}
+#app .proxyCard .card-head{padding:17px 18px 10px}
+#app .proxyCard .card-body{padding:0 18px 18px}
+#app .proxyCard .card-head h2{font-size:16px}
+#app .proxyCard .badge{padding:6px 9px;font-size:8.5px}
+#app .proxyCard .kv{padding:10px 0;font-size:9.8px}
+#app .proxyCard .kv strong{font-size:9.8px}
+#app .proxyCard .alert{margin-top:10px;padding:10px 11px;font-size:9.5px}
+#app > .card:has(#sitesList){padding:18px}
+#app .sites-list{margin-top:12px;gap:8px}
+#app .site-pill{padding:12px 13px;border-radius:13px;font-size:9.8px}
+#app .signout-card .card-body{padding:16px 18px}
+#app #logout{min-height:43px;border-radius:13px;font-size:11.5px}
+#app .footer{font-size:7.5px;padding:8px 10px 12px}
+
+/* Keep the popup canvas exactly 410px wide while giving the inner content a little more air. */
+#app{padding:0 4px 0}
